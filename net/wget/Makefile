@@ -97,11 +97,15 @@ endif
 define Package/wget-ssl/install
 	$(INSTALL_DIR) $(1)/usr/libexec
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/wget $(1)/usr/libexec/wget-ssl
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(LN) /usr/libexec/wget-ssl $(1)/usr/bin/wget
 endef
 
 define Package/wget-nossl/install
 	$(INSTALL_DIR) $(1)/usr/libexec
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/wget $(1)/usr/libexec/wget-nossl
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(LN) /usr/libexec/wget-nossl $(1)/usr/bin/wget
 endef
 
 $(eval $(call BuildPackage,wget-ssl))
