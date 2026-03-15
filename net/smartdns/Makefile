@@ -57,7 +57,7 @@ define Package/smartdns/install
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/package/openwrt/blacklist-ip.conf $(1)/etc/smartdns/blacklist-ip.conf
 	$(INSTALL_CONF) ./custom.conf $(1)/etc/smartdns/custom.conf
 	$(INSTALL_CONF) ./self-smartdns.conf $(1)/etc/smartdns/self-smartdns.conf
-	$(INSTALL_CONF) $(PKG_BUILD_DIR)/package/openwrt/files/etc/config/smartdns $(1)/etc/config/smartdns
+	$(INSTALL_CONF) ./smartdns.conf $(1)/etc/config/smartdns
 endef
 
 $(eval $(call BuildPackage,smartdns))
